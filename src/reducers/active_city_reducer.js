@@ -1,9 +1,9 @@
 export default function (state, action) {
   if (state === undefined) {
-    return null;
+    return [];
   }
   switch (action.type) {
-    case "ACTIVE_CITIES":
+    case "SET_ACTIVE_CITY":
       return action.payload;
     default:
       return state;
