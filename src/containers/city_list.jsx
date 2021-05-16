@@ -13,8 +13,8 @@ class CityList extends Component {
   render() {
     return (
       <div className="cities">
-        {this.props.cities.map((city) => {
-          return <City key={city.name} city={city} />;
+        {this.props.cities.map((city, index) => {
+          return <City key={city.name} city={city} tabIndex={index} />;
         })}
       </div>
     );
@@ -31,5 +31,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ setCities }, dispatch);
 }
 
-// export default FlatList;
 export default connect(mapStateToProps, mapDispatchToProps)(CityList);
