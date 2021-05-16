@@ -7,4 +7,13 @@ function setCities() {
   };
 }
 
-export default setCities;
+export { setCities };
+
+function setActiveCity(city) {
+  return {
+    type: "ACTIVE_CITIES",
+    payload: city,
+  };
+}
+
+export { setActiveCity };
