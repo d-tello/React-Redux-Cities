@@ -9,9 +9,13 @@ class City extends Component {
     this.props.setActiveCity(this.props.city);
   };
   render() {
+    let containerClasses = "list-group-item";
+    if (this.props.city === this.props.activeCity) {
+      containerClasses += " selected";
+    }
     return (
       <div
-        className="list-group-item"
+        className={containerClasses}
         onClick={this.handleClick}
         role="link"
         tabIndex={this.props.tabIndex + 1}
@@ -22,8 +26,14 @@ class City extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    activeCity: state.activeCity,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ setActiveCity }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(City);
+export default connect(mapStateToProps, mapDispatchToProps)(City);
